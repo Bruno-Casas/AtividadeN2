@@ -7,7 +7,8 @@ class TemplateEngine {
     }
 
     function apply($template, $atts = []) {
-        $source = "$this->basedir/$template.t.php";
+        // $source = "$this->basedir/$template.t.php";
+        $source = "$this->basedir/$template.php";
         if(file_exists($source)) {
             extract($atts);
             include $source;
