@@ -15,7 +15,7 @@
                 <table class="table">
                     <thead class="thead-light">
                         <tr>
-                            <th scope="col">Frase</th>
+                            <th scope="col">Frases</th>
                             <th scope="col">Autor</th>
                             <th scope="col">Ação</th>
                         </tr>

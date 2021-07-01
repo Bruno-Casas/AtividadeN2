@@ -15,11 +15,11 @@
                         <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                             <div class="form-group">
                                 <label for="email" class="sr-only">Digite seu e-mail</label>
-                                <input type="email" name="email" id="email" class="form-control" placeholder="email@dominio.com">
+                                <input type="email" name="email" id="email" class="form-control" placeholder="Seu e-mail aqui">
                             </div>
                             <div class="form-group mb-4">
                                 <label for="password" class="sr-only">Digite sua senha</label>
-                                <input type="password" name="password" id="password" class="form-control" placeholder="***********">
+                                <input type="password" name="password" id="password" class="form-control" placeholder="Sua senha aqui">
                             </div>
                             <input name="login" id="login" class="btn btn-block login-btn mb-4" type="submit" value="Login">
                         </form>
