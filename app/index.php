@@ -1,3 +1,7 @@
+<?php
+    header("Location: ./pages/login.php")
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -28,7 +32,8 @@
     );
 
     // $template->apply('../templates/exemple', $variables);
-    $template->apply('../templates/Screens/Login', $variables);
+    // $template->apply('../templates/Screens/Login', $variables);
+    header("Location: ./login.php")
     ?>
 </body>
 
