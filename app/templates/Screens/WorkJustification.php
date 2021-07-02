@@ -2,13 +2,13 @@
     <div class="container">
         <!-- Header -->
         <?php
-        include_once "./templates/Components/Header.php";
+        include_once "../templates/Components/Header.php";
         ?>
         <!-- Fim Header -->
         <div class="row no-gutters">
             <!-- Menu -->
             <?php
-            include_once "./templates/Components/Menu.php";
+            include_once "../templates/Components/Menu.php";
             ?>
             <!-- Menu -->
             <div class="col-md-9">

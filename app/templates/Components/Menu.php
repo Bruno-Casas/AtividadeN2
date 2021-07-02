@@ -1,6 +1,6 @@
 <div class="col-md-3 d-flex flex-column justify-content-center">
 
-    <a href="#" class="btn btn-primary" role="button" aria-pressed="true"><i class="fas fa-plus"></i> Contribuir</a>
+    <a href="./templates/Screens/NewPhrase.php" class="btn btn-primary" role="button" aria-pressed="true"><i class="fas fa-plus"></i> Contribuir</a>
 
     <nav>
         <ul class="nav flex-column">
