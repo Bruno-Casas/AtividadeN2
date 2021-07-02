@@ -13,11 +13,11 @@ if (!empty($_POST)) {
 
       
       $dados = array(
-        ':nome' => $_POST['name'],
-        ':dataNascimento' => $_POST['bornDate'],
+        ':nome' => $_POST['nome'],
+        ':dataNascimento' => $_POST['dataNascimento'],
         ':telefone' => $_POST['telefone'],
         ':email' => $_POST['email'],
-        ':senha' => md5($_POST['password'])
+        ':senha' => md5($_POST['senha'])
       );
       
       if ($stmt->execute($dados)) {
