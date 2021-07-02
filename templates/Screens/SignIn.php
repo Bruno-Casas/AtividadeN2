@@ -35,6 +35,9 @@
                             </div>
                             <input name="login" id="login" class="btn btn-block login-btn mb-4" type="submit"
                                 value="Cadastrar">
+                            <input name="cancelar" id="cogin" class="btn btn-block login-btn mb-4" type="submit"
+                                value="Cancelar">               
+                                                   
                         </form>
                     </div>
                 </div>
