@@ -1,0 +1,44 @@
+version: '3.7'
+
+networks:
+  desculpe_mas:
+    driver: bridge
+
+services:
+  php:
+    build: ./docker/php
+    tty: true
+    container_name: desculpe_mas-php
+    networks:
+      - desculpe_mas
+    ports:
+      - '80:80'
+    volumes:
+      - ./app:/var/www/html
+
+  postgres:
+    image: postgres
+    container_name: desculpe_mas-db
+    environment:
+      POSTGRES_PASSWORD: "admin"
+    ports:
+      - "5432:5432"
+    networks:
+      - desculpe_mas
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: desculpe_mas-admin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin04@desculpemas.com"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
+      POSTGRES_DB: desculpemas
+    volumes:
+      - './docker/postgres:/var/lib/postgresql/data'
+    ports:
+      - "8080:80"
+    depends_on:
+      - postgres
+    networks:
+      - desculpe_mas
+
