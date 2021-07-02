@@ -53,14 +53,14 @@
                                                 alert("Não implementado")
                                             }
 
-                                            function deleteDesculpa(){
+                                            function deleteDesculpa() {
                                                 alert("Não implementado")
                                             }
                                         </script>
                                         <div class="d-flex justify-content-around">
-                                            <button onclick="editDesculpa()" type="button" class="btn bbtn-outline-primary">
+                                            <a href="./updatephrase.php?id=<?php echo $a['id']; ?>" class="btn bbtn-outline-primary">
                                                 <i class="far fa-edit"></i>
-                                            </button>
+                                            </a>
                                             <a href="./deletedesculpa.php?id=<?php echo $a['id']; ?>" class="btn bbtn-outline-primary">
                                                 <i class="far fa-trash-alt text-danger"></i>
                                             </a>
