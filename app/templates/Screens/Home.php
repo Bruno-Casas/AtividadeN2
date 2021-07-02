@@ -40,7 +40,20 @@
                                         if ($a['user_void'] == true) {
                                             echo "Anônimo";
                                         } else {
-                                            echo $a['usuario_id'];
+                                            require '../connection/conectaBD.php';
+
+                                            $sql = "SELECT u.nome FROM usuario u WHERE u.id = :userID LIMIT 1";
+                                            $stmt = $pdo->prepare($sql);
+
+                                            $dados = array(':userID' => (int)$a['usuario_id']);
+
+                                            if($stmt->execute($dados)){
+                                                $nome = $stmt->fetchAll();
+                                                // var_dump($nome);
+                                                echo $nome[0]['nome'];
+                                            }else{
+                                                echo "Não Encontrado";
+                                            }
                                         }
                                         ?>
                                     </td>
