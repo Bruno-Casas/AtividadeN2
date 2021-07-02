@@ -1,3 +1,8 @@
+<?php
+    session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -22,8 +27,11 @@
     <?php
     require '../lib/engine.php';
     require '../connection/conectaBD.php';
+
+    // session_start();
+    $id = $_SESSION['id'];
     
-    $sql = "SELECT * FROM desculpa";
+    $sql = "SELECT d.* FROM desculpa d WHERE d.usuario_id = $id";
 
     try {
         
@@ -43,7 +51,9 @@
 
     $variables = array(
         // 'variable' => 'Valor da variável'
-        'desculpas' => $desculpas
+        'desculpas' => $desculpas,
+        'userName' => $_SESSION['nome'],
+        'email' => $_SESSION['email']
     );
 
     // $template->apply('../templates/exemple', $variables);

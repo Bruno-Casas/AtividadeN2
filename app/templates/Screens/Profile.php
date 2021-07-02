@@ -11,19 +11,19 @@
                     <i class="far fa-user-circle"></i>
                 </p>
 
-                <p class="h4 text-center">João da Silva</p>
-                <p class="text-center">seuemail@mail.com</p>
+                <p class="h4 text-center"><?php echo $userName ?></p>
+                <p class="text-center"><?php echo $email ?></p>
 
                 <div class="d-flex justify-content-center">
-                    <button type="button" class="btn btn-outline-danger">Sair</button>
+                    <a href="./logout.php" class="btn btn-outline-danger">Sair</a>
                 </div>
 
             </div>
             <div class="col-md-8">
                 <div class="d-flex justify-content-between">
                     <a href="./home.php" class="btn btn-link"><i class="fas fa-arrow-left"></i> Voltar</a>
-                    
-                    <a href="#" class="btn btn-primary" role="button" aria-pressed="true"><i class="fas fa-plus"></i> Nova frase</a>
+
+                    <a href="./newphrase.php" class="btn btn-primary" role="button" aria-pressed="true"><i class="fas fa-plus"></i> Nova frase</a>
                 </div>
                 <table class="table">
                     <thead class="thead-light">
@@ -33,20 +33,43 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <!-- <tr>
                             <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius ex laborum numquam natus
                                 consectetur odio.</td>
+                            <td>Mark Ruffalo</td>
                             <td>
-                                <div class="d-flex justify-content-around">
-                                    <button type="button" class="btn bbtn-outline-primary">
-                                        <i class="far fa-edit"></i>
-                                    </button>
-                                    <button type="button" class="btn bbtn-outline-primary">
-                                        <i class="far fa-trash-alt text-danger"></i>
-                                    </button>
-                                </div>
+                                <button type="button" class="btn bbtn-outline-primary btn-sm"><i class="far fa-copy"></i> copiar</button>
                             </td>
-                        </tr>
+                        </tr> -->
+
+                        <?php if (!empty($desculpas)) { ?>
+                            <!-- Aqui que será montada a tabela com a relação de anúncios!! -->
+                            <?php foreach ($desculpas as $a) { ?>
+                                <tr>
+                                    <td><?php echo $a['frase']; ?></td>
+                                    <td>
+                                        <script>
+                                            function editDesculpa() {
+                                                alert("Não implementado")
+                                            }
+
+                                            function deleteDesculpa(){
+                                                alert("Não implementado")
+                                            }
+                                        </script>
+                                        <div class="d-flex justify-content-around">
+                                            <button onclick="editDesculpa()" type="button" class="btn bbtn-outline-primary">
+                                                <i class="far fa-edit"></i>
+                                            </button>
+                                            <a href="./deletedesculpa.php?id=<?php echo $a['id']; ?>" class="btn bbtn-outline-primary">
+                                                <i class="far fa-trash-alt text-danger"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                        <?php } ?>
+
                     </tbody>
                 </table>
             </div>

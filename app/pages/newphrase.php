@@ -1,3 +1,37 @@
+<?php
+if (!empty($_POST)) {
+    session_start();
+    require_once '../connection/conectaBD.php';
+    try {
+        $sql = "INSERT INTO desculpa
+                      (frase, user_void, categoria, usuario_id)
+                    VALUES
+                      (:frase, :user_void, :categoria, :usuario_id)";
+
+        $stmt = $pdo->prepare($sql);
+
+        $dados = array(
+            ':frase' => $_POST['phrase'],
+            ':user_void' => $_POST['anonymos'],
+            ':categoria' => $_POST['category'],
+            ':usuario_id' => $_SESSION['id']
+        );
+
+        if ($stmt->execute($dados)) {
+            //header("Location: index.php?msgSucesso=Cadastro realizado com sucesso!");
+            header("Location: ./home.php");
+            echo "<script>alert('Obrigado por contribuir')</script>";
+        }
+    } catch (PDOException $e) {
+        // echo $e;
+        header("Location: ./newphrase.php");
+        echo "<script>alert('Não foi possível contribuir')</script>";
+        //header("Location: index.php?msgErro=Falha ao cadastrar...");
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -24,11 +58,11 @@
     $template = new TemplateEngine();
 
     $variables = array(
-        'variable' => 'Valor da variável'
+        
     );
 
     // $template->apply('../templates/exemple', $variables);
-    $template->apply('../templates/Screens/NewPhrase', $variables);
+    $template->apply('../templates/Screens/NewPhrase', []);
     ?>
 </body>
 

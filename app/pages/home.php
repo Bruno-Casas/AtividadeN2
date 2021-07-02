@@ -1,3 +1,8 @@
+<?php
+    session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -43,7 +48,8 @@
 
     $variables = array(
         // 'variable' => 'Valor da variável'
-        'desculpas' => $desculpas
+        'desculpas' => $desculpas,
+        'userName' => $_SESSION['nome']
     );
 
     // $template->apply('../templates/exemple', $variables);

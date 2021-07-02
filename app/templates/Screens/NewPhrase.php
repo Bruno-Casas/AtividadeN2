@@ -11,12 +11,12 @@
                         <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                             <div class="form-group">
                                 <label for="phrase">Digite sua frase</label>
-                                <textarea class="form-control" id="phrase" rows="3"></textarea>
+                                <textarea class="form-control" id="phrase" name="phrase" rows="3"></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label for="category">Escolha a categoria</label>
-                                <select class="form-control" id="category">
+                                <select class="form-control" id="category" name="category">
                                     <option value="default">Nenhuma</option>
                                     <option value="funny">Engraçada</option>
                                     <option value="work">Para o trabalho</option>
@@ -24,11 +24,12 @@
                                 </select>
                             </div>
 
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="anonymos">
-                                <label class="form-check-label" for="anonymos">
-                                    Quero ficar no anonimato
-                                </label>
+                            <div class="form-group">
+                                <label for="category">Usuário Anônimo?</label>
+                                <select class="form-control" id="anonymos" name="anonymos">
+                                    <option value="false">Não</option>
+                                    <option value="true">Sim</option>
+                                </select>
                             </div>
 
                             <input name="newPhrase" id="newPhrase" class="btn btn-block login-btn mb-4" type="submit" value="Enviar">

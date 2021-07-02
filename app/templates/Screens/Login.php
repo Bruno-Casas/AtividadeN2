@@ -12,7 +12,7 @@
 
                         <p class="login-card-description">Faça login</p>
 
-                        <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                        <form method="POST" action="processaLogin.php">
                             <div class="form-group">
                                 <label for="email" class="sr-only">Digite seu e-mail</label>
                                 <input type="email" name="email" id="email" class="form-control" placeholder="Seu e-mail aqui">

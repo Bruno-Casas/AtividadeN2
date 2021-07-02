@@ -9,6 +9,8 @@
                 <div class="col-md-8">
                     <div class="card-body">
 
+                        <a href="./login.php" class="btn btn-link"><i class="fas fa-arrow-left"></i> Voltar</a>
+
                         <p class="h1">Desculpe, mas...</p>
 
                         <p class="login-card-description">Crie um novo usuário</p>
@@ -34,10 +36,7 @@
                                     placeholder="***********">
                             </div>
                             <input name="login" id="login" class="btn btn-block login-btn mb-4" type="submit"
-                                value="Cadastrar">
-                            <input name="cancelar" id="cancelar" class="btn btn-block login-btn mb-4" type="submit"
-                                value="Cancelar">               
-                                                   
+                                value="Cadastrar">             
                         </form>
                     </div>
                 </div>

@@ -1,3 +1,8 @@
+<?php
+    session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -43,6 +48,8 @@
 
             if ($stmt->execute($dados)) {
                 //header("Location: index.php?msgSucesso=Cadastro realizado com sucesso!");
+                echo "<script>alert('Cadastro realizado com sucesso')</script>";
+                $template->apply('../templates/Screens/SignIn', []);
             }
         } catch (PDOException $e) {
             echo $e;

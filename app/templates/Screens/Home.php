@@ -31,7 +31,7 @@
                         </tr> -->
 
                         <?php if (!empty($desculpas)) { ?>
-                            <!-- Aqui que será montada a tabela com a relação de anúncios!! -->
+                            <!-- Aqui que será montada a tabela com a relação de desculpas!! -->
                             <?php foreach ($desculpas as $a) { ?>
                                 <tr>
                                     <td><?php echo $a['frase']; ?></td>
@@ -47,8 +47,8 @@
                                     <td>
                                         <script>
                                             function copyToClipboard() {
-                                                let temp = documente.createElement("input")
-                                                temp.value = <?php echo $a['frase']; ?>
+                                                let temp = document.createElement("input")
+                                                temp.value = "<?php echo $a['frase']; ?>"
 
                                                 document.body.appendChild(temp)
 

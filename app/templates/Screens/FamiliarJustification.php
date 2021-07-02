@@ -52,7 +52,7 @@
                                         <script>
                                             function copyToClipboard() {
                                                 let temp = documente.createElement("input")
-                                                temp.value = <?php echo $a['frase']; ?>
+                                                temp.value = "<?php echo $a['frase']; ?>"
 
                                                 document.body.appendChild(temp)
 
