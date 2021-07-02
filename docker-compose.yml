@@ -1,36 +1,44 @@
-version: '3'
+version: '3.7'
+
+networks:
+  desculpe_mas:
+    driver: bridge
+
 services:
-    web:
-        image: nginx
-        volumes:
-            - ./.docker/conf/nginx/default.conf:/etc/nginx/conf.d/default.conf
-            - ./app:/var/www/html
-        ports:
-            - 80:80
-        restart: always
-        depends_on:
-            - php
-            - db
-    php:
-        build: .docker
-        restart: always
-        volumes:
-            - ./.docker/conf/php/php.ini:/usr/local/etc/php/conf.d/php.ini
-            - ./.docker/conf/php/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
-            - .:/var/www/html
-    composer:
-        image: composer
-        volumes:
-            - .:/app
-        command: install
-    db:
-        image: postgres:10.1
-        restart: always
-        environment:
-            - POSTGRES_DB=${DB_NAME}
-            - POSTGRES_USER=${DB_USER}
-            - POSTGRES_PASSWORD=${DB_PASSWORD}
-        ports:
-            - 5432:5432
-        volumes:
-            - ./.docker/conf/postgres/:/docker-entrypoint-initdb.d/
+  php:
+    build: ./docker/php
+    tty: true
+    container_name: desculpe_mas-php
+    networks:
+      - desculpe_mas
+    ports:
+      - '80:80'
+    volumes:
+      - ./app:/var/www/html
+
+  postgres:
+    image: postgres
+    container_name: desculpe_mas-db
+    environment:
+      POSTGRES_PASSWORD: "admin"
+    ports:
+      - "5432:5432"
+    networks:
+      - desculpe_mas
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: desculpe_mas-admin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin04@desculpemas.com"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
+      POSTGRES_DB: desculpemas
+    volumes:
+      - './docker/postgres:/var/lib/postgresql/data'
+    ports:
+      - "8080:80"
+    depends_on:
+      - postgres
+    networks:
+      - desculpe_mas
+
