@@ -13,14 +13,14 @@
 
     <script src="https://kit.fontawesome.com/7d00217c81.js" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="../css/global.css">
 
     <title>Atividade N2</title>
 </head>
 
 <body>
     <?php
-    require './lib/engine.php';
+    require '../lib/engine.php';
     $template = new TemplateEngine();
 
     $variables = array(
@@ -28,7 +28,7 @@
     );
 
     // $template->apply('../templates/exemple', $variables);
-    $template->apply('../templates/Screens/Home', $variables);
+    $template->apply('../templates/Screens/SignIn', $variables);
     ?>
 </body>
 
