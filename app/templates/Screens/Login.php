@@ -23,7 +23,7 @@
                             </div>
                             <input name="login" id="login" class="btn btn-block login-btn mb-4" type="submit" value="Login">
                         </form>
-                        <p class="login-card-footer-text"> Ainda não possui acesso? <a href="./pages/signin.php" class="text-reset">Clique aqui</a> e crie agora mesmo</p>
+                        <p class="login-card-footer-text"> Ainda não possui acesso? <a href="./signin.php" class="text-reset">Clique aqui</a> e crie agora mesmo</p>
                     </div>
                 </div>
             </div>

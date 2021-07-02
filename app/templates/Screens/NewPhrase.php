@@ -4,7 +4,7 @@
             <div class="row no-gutters">
                 <div class="col-md-8">
                     <div class="card-body">
-                        <a href="./Home.php" class="btn btn-link"><i class="fas fa-arrow-left"></i> Voltar</a>
+                        <a href="./home.php" class="btn btn-link"><i class="fas fa-arrow-left"></i> Voltar</a>
 
                         <p class="login-card-description">Contribuir com uma nova frase</p>
 

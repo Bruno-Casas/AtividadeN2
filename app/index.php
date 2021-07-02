@@ -28,7 +28,7 @@
     );
 
     // $template->apply('../templates/exemple', $variables);
-    $template->apply('../templates/Screens/Home', $variables);
+    $template->apply('../templates/Screens/Login', $variables);
     ?>
 </body>
 

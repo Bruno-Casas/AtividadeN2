@@ -11,6 +11,8 @@ CREATE TABLE usuario (
 CREATE TABLE desculpa (
     id serial PRIMARY KEY,
 	frase text UNIQUE NOT NULL,
+	user_void boolean default false,
+	categoria varchar(64),
 	usuario_id int NOT NULL,
     CONSTRAINT fk_usuario_id
         FOREIGN KEY(usuario_id) 

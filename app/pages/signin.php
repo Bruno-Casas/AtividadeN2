@@ -21,14 +21,39 @@
 <body>
     <?php
     require '../lib/engine.php';
+    require '../connection/conectaBD.php';
     $template = new TemplateEngine();
 
-    $variables = array(
-        'variable' => 'Valor da variável'
-    );
+    if (!empty($_POST)) {
+        require_once '../connection/conectaBD.php';
+        try {
+            $sql = "INSERT INTO usuario
+                      (nome, data_nascimento, email, password)
+                    VALUES
+                      (:name, :data_nascimento, :email, :password)";
 
-    // $template->apply('../templates/exemple', $variables);
-    $template->apply('../templates/Screens/SignIn', $variables);
+            $stmt = $pdo->prepare($sql);
+
+            $dados = array(
+                ':name' => $_POST['name'],
+                ':data_nascimento' => $_POST['bornDate'],
+                ':email' => $_POST['email'],
+                ':password' => md5($_POST['password'])
+            );
+
+            if ($stmt->execute($dados)) {
+                //header("Location: index.php?msgSucesso=Cadastro realizado com sucesso!");
+            }
+        } catch (PDOException $e) {
+            echo $e;
+            //header("Location: index.php?msgErro=Falha ao cadastrar...");
+        }
+    } else {
+        $template->apply('../templates/Screens/SignIn', []);
+    }
+    die();
+
+    
     ?>
 </body>
 

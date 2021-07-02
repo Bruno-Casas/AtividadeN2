@@ -21,7 +21,7 @@
             </div>
             <div class="col-md-8">
                 <div class="d-flex justify-content-between">
-                    <a href="./Home" class="btn btn-link"><i class="fas fa-arrow-left"></i> Voltar</a>
+                    <a href="./home.php" class="btn btn-link"><i class="fas fa-arrow-left"></i> Voltar</a>
                     
                     <a href="#" class="btn btn-primary" role="button" aria-pressed="true"><i class="fas fa-plus"></i> Nova frase</a>
                 </div>
