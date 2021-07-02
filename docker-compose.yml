@@ -21,6 +21,7 @@ services:
     container_name: desculpe_mas-db
     environment:
       POSTGRES_PASSWORD: "admin"
+      POSTGRES_DB: "desculpemas"
     ports:
       - "5432:5432"
     networks:
@@ -30,9 +31,8 @@ services:
     image: dpage/pgadmin4
     container_name: desculpe_mas-admin
     environment:
-      PGADMIN_DEFAULT_EMAIL: "admin04@desculpemas.com"
+      PGADMIN_DEFAULT_EMAIL: "admin@desculpemas.com"
       PGADMIN_DEFAULT_PASSWORD: "admin"
-      POSTGRES_DB: desculpemas
     volumes:
       - './docker/postgres:/var/lib/postgresql/data'
     ports:
