@@ -17,10 +17,10 @@
                             <div class="form-group">
                                 <label for="category">Escolha a categoria</label>
                                 <select class="form-control" id="category">
-                                    <option>Nenhuma</option>
-                                    <option>Engraçada</option>
-                                    <option>Para o trabalho</option>
-                                    <option>Familiar</option>
+                                    <option value="default">Nenhuma</option>
+                                    <option value="funny">Engraçada</option>
+                                    <option value="work">Para o trabalho</option>
+                                    <option value="familiar">Familiar</option>
                                 </select>
                             </div>
 

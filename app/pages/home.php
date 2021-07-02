@@ -21,10 +21,29 @@
 <body>
     <?php
     require '../lib/engine.php';
+    require '../connection/conectaBD.php';
+    
+    $sql = "SELECT * FROM desculpa";
+
+    try {
+        
+        $stmt = $pdo->prepare($sql);
+
+        if($stmt->execute()){
+            $desculpas = $stmt->fetchAll();
+        }else{
+            echo "Falha ao consultar banco de dados!";
+        }
+
+    } catch (PDOException $e) {
+        echo ("Ocorreu um erro ao listas");
+    }
+
     $template = new TemplateEngine();
 
     $variables = array(
-        'variable' => 'Valor da variável'
+        // 'variable' => 'Valor da variável'
+        'desculpas' => $desculpas
     );
 
     // $template->apply('../templates/exemple', $variables);

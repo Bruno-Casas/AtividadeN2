@@ -25,59 +25,54 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <!-- <tr>
                             <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius ex laborum numquam natus
                                 consectetur odio.</td>
                             <td>Mark Ruffalo</td>
                             <td>
                                 <button type="button" class="btn bbtn-outline-primary btn-sm"><i class="far fa-copy"></i> copiar</button>
                             </td>
-                        </tr>
+                        </tr> -->
 
-                        <tr>
-                            <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius ex laborum numquam natus
-                                consectetur odio.</td>
-                            <td>Mark Ruffalo</td>
-                            <td>
-                                <button type="button" class="btn bbtn-outline-primary btn-sm"><i class="far fa-copy"></i> copiar</button>
-                            </td>
-                        </tr>
+                        <?php if (!empty($desculpas)) { ?>
+                            <!-- Aqui que será montada a tabela com a relação de anúncios!! -->
+                            <?php foreach ($desculpas as $a) { ?>
+                                <tr>
+                                    <td><?php echo $a['frase']; ?></td>
+                                    <td>
+                                        <?php
+                                        if ($a['user_void'] == true) {
+                                            echo "Anônimo";
+                                        } else {
+                                            echo $a['usuario_id'];
+                                        }
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <script>
+                                            function copyToClipboard() {
+                                                let temp = documente.createElement("input")
+                                                temp.value = <?php echo $a['frase']; ?>
 
-                        <tr>
-                            <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius ex laborum numquam natus
-                                consectetur odio.</td>
-                            <td>Mark Ruffalo</td>
-                            <td>
-                                <button type="button" class="btn bbtn-outline-primary btn-sm"><i class="far fa-copy"></i> copiar</button>
-                            </td>
-                        </tr>
+                                                document.body.appendChild(temp)
 
-                        <tr>
-                            <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius ex laborum numquam natus
-                                consectetur odio.</td>
-                            <td>Mark Ruffalo</td>
-                            <td>
-                                <button type="button" class="btn bbtn-outline-primary btn-sm"><i class="far fa-copy"></i> copiar</button>
-                            </td>
-                        </tr>
+                                                try {
+                                                    temp.select();
+                                                    document.execCommand("copy");
+                                                    alert("Copiado com sucesso")
+                                                } catch (error) {
+                                                    alert("Não foi possível copiar")
+                                                }
 
-                        <tr>
-                            <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius ex laborum numquam natus
-                                consectetur odio.</td>
-                            <td>Mark Ruffalo</td>
-                            <td>
-                                <button type="button" class="btn bbtn-outline-primary btn-sm"><i class="far fa-copy"></i> copiar</button>
-                            </td>
-                        </tr>
+                                                document.body.removeChild(temp)
+                                            }
+                                        </script>
+                                        <button onclick="copyToClipboard()" type="button" class="btn bbtn-outline-primary btn-sm"><i class="far fa-copy"></i> copiar</button>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                        <?php } ?>
 
-                        <tr>
-                            <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius ex laborum numquam natus
-                                consectetur odio.</td>
-                            <td>Mark Ruffalo</td>
-                            <td>
-                                <button type="button" class="btn bbtn-outline-primary btn-sm"><i class="far fa-copy"></i> copiar</button>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
