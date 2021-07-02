@@ -42,7 +42,7 @@ if (!empty($_POST)) {
 
             // Redirecionar p/ página inicial (login)
             // header("Location: index.php?msgErro=E-mail e/ou Senha inválido(s).");
-            echo "<script>alert('sem sucesso')</script>";
+            header('Location: /pages/login.php');
         }
     } catch (PDOException $e) {
         die($e->getMessage());
