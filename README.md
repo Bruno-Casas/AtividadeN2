@@ -8,7 +8,7 @@
 
  - Abra o diretório no terminal e digite: docker-compose up
  - Acesse localhost:8080
- - Logue com no PGAdmin ( e-mail: brunocasas04@gmail.com, senha: userRoot )
+ - Logue com no PGAdmin ( e-mail: brunocasas04@gmail.com, senha: rootUser )
  - Acesse o banco de dados postgress
  - Execute o código da do arquivo contido em resources
  
