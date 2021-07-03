@@ -30,10 +30,25 @@
                             </td>
                         </tr> -->
 
+                        <script>
+                            function copyToClipboard(id) {
+                                let input = document.getElementById(id);
+
+                                try {
+                                    input.select();
+                                    document.execCommand("copy");
+                                    alert("Copiado com sucesso")
+                                } catch (error) {
+                                    alert("Não foi possível copiar")
+                                }
+                            }
+                        </script>
+
                         <?php if (!empty($desculpas)) { ?>
                             <!-- Aqui que será montada a tabela com a relação de desculpas!! -->
                             <?php foreach ($desculpas as $a) { ?>
                                 <tr>
+                                    <input type="text" style="display:none" id="<?php echo $a['id']; ?>" value="<?php echo $a['frase']; ?>">
                                     <td><?php echo $a['frase']; ?></td>
                                     <td>
                                         <?php
@@ -47,36 +62,20 @@
 
                                             $dados = array(':userID' => (int)$a['usuario_id']);
 
-                                            if($stmt->execute($dados)){
+                                            if ($stmt->execute($dados)) {
                                                 $nome = $stmt->fetchAll();
                                                 // var_dump($nome);
                                                 echo $nome[0]['nome'];
-                                            }else{
+                                            } else {
                                                 echo "Não Encontrado";
                                             }
                                         }
                                         ?>
                                     </td>
                                     <td>
-                                        <script>
-                                            function copyToClipboard() {
-                                                let temp = document.createElement("input")
-                                                temp.value = "<?php echo $a['frase']; ?>"
+                                    <td>
 
-                                                document.body.appendChild(temp)
-
-                                                try {
-                                                    temp.select();
-                                                    document.execCommand("copy");
-                                                    alert("Copiado com sucesso")
-                                                } catch (error) {
-                                                    alert("Não foi possível copiar")
-                                                }
-
-                                                document.body.removeChild(temp)
-                                            }
-                                        </script>
-                                        <button onclick="copyToClipboard()" type="button" class="btn bbtn-outline-primary btn-sm"><i class="far fa-copy"></i> copiar</button>
+                                        <button onclick="copyToClipboard(<?php echo $a['id']; ?>)" type="button" class="btn bbtn-outline-primary btn-sm"><i class="far fa-copy"></i> copiar</button>
                                     </td>
                                 </tr>
                             <?php } ?>
