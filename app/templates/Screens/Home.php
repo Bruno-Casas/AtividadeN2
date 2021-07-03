@@ -34,13 +34,20 @@
                             function copyToClipboard(id) {
                                 let input = document.getElementById(id);
 
+                                var tempInput = document.createElement('input');
+                                tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+                                tempInput.value = input.value;
+                                document.body.appendChild(tempInput);                    
+
                                 try {
-                                    input.select();
+                                    tempInput.select();
                                     document.execCommand("copy");
                                     alert("Copiado com sucesso")
                                 } catch (error) {
                                     alert("Não foi possível copiar")
                                 }
+
+                                document.body.removeChild(tempInput);
                             }
                         </script>
 
